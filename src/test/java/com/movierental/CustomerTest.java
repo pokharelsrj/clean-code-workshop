@@ -80,4 +80,15 @@ public class CustomerTest {
                 "You earned 2 frequent renter points",customer.statement());
     }
 
+    @Test
+    public void htmlStatementTest()
+    {
+        Customer customer = new Customer("Hari");
+        customer.addRental(new Rental(new Movie("Frozen",Movie.NEW_RELEASE),5));
+        assertEquals("<h1>Rental Record for <b>Hari</b></h1><br/>" +
+                "Frozen 15.0<br/>" +
+                "Amount owed is 15.0<br/>" +
+                "You earned <b>2</b> frequent renter points",customer.htmlStatement());
+    }
+
 }
